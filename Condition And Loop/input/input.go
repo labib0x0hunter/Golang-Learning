@@ -52,6 +52,9 @@ func chunkInput() {
 			break
 		}
 		// Handle err
+		if err != nil {
+			
+		}
 	}
 }
 

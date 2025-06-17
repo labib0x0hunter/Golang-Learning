@@ -31,6 +31,8 @@ func main() {
 
 	afterTrim := strings.TrimSpace(withOutTrim)
 	afterTrim = strings.Trim(withOutTrim, " ")
+	afterTrim = strings.TrimPrefix("abcd", "ab")
+	afterTrim = strings.TrimSuffix("abcd", "cd")
 
 	split := strings.Split("a,b,c", ",")
 	split = strings.Fields("a b c")

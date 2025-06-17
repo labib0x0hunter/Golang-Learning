@@ -50,10 +50,52 @@ func switchCase() {
 	case unicode.IsNumber(r):
 		fmt.Println("Rune is a number")
 	}
+
+	words := []string{"go", "Hello", "WorldIsInDanger"}
+	for _, word := range words {
+		switch size := len(word); size {
+		case 1, 2, 3:
+			fmt.Println("Small")
+		case 4, 5, 6:
+			fmt.Println("Medium")
+		default:
+			fmt.Println("Large")
+		}
+	}
+}
+
+func switchInsideLoop() {
+	// didn't exit loop
+	for i := 0; i < 10; i++ {
+		switch i {
+		case 0, 2, 4, 6, 8:
+			fmt.Println(i, "Even")
+		case 7:
+			fmt.Println(i, "Exit loop")
+			break
+		default:
+			fmt.Println(i, "Odd")
+		}
+	}
+
+	// Exit loop
+	loop:
+	for i := 0; i < 10; i++ {
+		switch i {
+		case 0, 2, 4, 6, 8:
+			fmt.Println(i, "Even")
+		case 7:
+			fmt.Println(i, "Exit loop")
+			break loop
+		default:
+			fmt.Println(i, "Odd")
+		}
+	}
 }
 
 func main() {
 
 	switchCase()
+	switchInsideLoop()
 
 }
