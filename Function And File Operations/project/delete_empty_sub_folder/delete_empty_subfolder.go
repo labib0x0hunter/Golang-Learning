@@ -7,6 +7,15 @@ import (
 	"path/filepath"
 )
 
+func deleteFile(path string, dryRun bool) {
+	if dryRun {
+		fmt.Println("[dryRun]", path, "is to be removed")
+	} else {
+		os.Remove(path)
+		log.Println(path, "removed")
+	}
+}
+
 func walkDir(path string, dryRun bool) {
 	files, err := os.ReadDir(path)
 	if err != nil {
@@ -27,12 +36,7 @@ func walkDir(path string, dryRun bool) {
 			}
 
 			// Empty files
-			if dryRun {
-				fmt.Println("[dryRun]", fullPath, "is to be removed")
-			} else {
-				os.Remove(fullPath)
-				log.Println(fullPath, "removed")
-			}
+			deleteFile(fullPath, dryRun)
 		}
 	}
 
@@ -46,12 +50,7 @@ func walkDir(path string, dryRun bool) {
 		return
 	}
 
-	if dryRun {
-		fmt.Println("[dryRun]", path, "is to be removed")
-	} else {
-		os.Remove(path)
-		log.Println(path, "removed")
-	}
+	deleteFile(path, dryRun)
 }
 
 func main() {
