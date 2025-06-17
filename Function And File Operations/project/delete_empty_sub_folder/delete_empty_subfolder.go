@@ -40,7 +40,6 @@ func walkDir(path string, dryRun bool) {
 		}
 	}
 
-	// Empty Folder
 	remainFiles, err := os.ReadDir(path)
 	if err != nil {
 		panic(err)
@@ -50,6 +49,7 @@ func walkDir(path string, dryRun bool) {
 		return
 	}
 
+	// Empty Folder
 	deleteFile(path, dryRun)
 }
 
