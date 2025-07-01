@@ -44,4 +44,6 @@ func main() {
 		info.Size()
 		return nil
 	})
+
+	// filepath.Glob()
 }

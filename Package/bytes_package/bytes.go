@@ -6,6 +6,8 @@ import (
 	"io"
 )
 
+// Incomplete
+
 func main() {
 	// Most of the function are from strings package, which are not shown in this file
 
@@ -34,4 +36,7 @@ func main() {
 
 	buffer.Reset()
 
+	buffer.Bytes()
+	buffer.Truncate(0)
+	buffer.Available()
 }
